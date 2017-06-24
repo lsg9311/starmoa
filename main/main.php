@@ -1,16 +1,20 @@
+<?php
+  if(isset($_COOKIE["user_name"])){
+    echo $_COOKIE["user_name"]."님 환영합니다";
+  }
+?>
 <html>
 <head>
+  <meta charset="utf-8" />
   <script src="../js/main.js"></script>
   <link rel="stylesheet" href="../css/main.css" />
 </head>
 <body>
-  <div id="top">
-    환영합니다.
-  </div>
   <form action="../php/search.php" method="post" name="search_info">
-    <input type="select" name="query_type"/>
-    <option value="이름" name="name"></option>
-    <option value="태그" name="tag"></option>
+    <select name="query_type"/>
+      <option value="name">이름</option>
+      <option value="tag">태그</option>
+    </select>
     <label for="query">검색어 : </label>
     <input type="text" id="query" name="query"/>
     <input type="submit" value="SEARCH" />
