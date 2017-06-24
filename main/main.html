@@ -1,0 +1,18 @@
+<html>
+<head>
+  <script src="../js/main.js"></script>
+  <link rel="stylesheet" href="../css/main.css" />
+</head>
+<body>
+  <div id="top">
+    환영합니다.
+  </div>
+  <form action="../php/search.php" method="post" name="search_info">
+    <input type="select" name="query_type"/>
+    <option value="이름" name="name"></option>
+    <option value="태그" name="tag"></option>
+    <label for="query">검색어 : </label>
+    <input type="text" id="query" name="query"/>
+    <input type="submit" value="SEARCH" />
+</body>
+</html>
