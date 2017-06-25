@@ -42,6 +42,8 @@
       <input type="text" id="tag_idx" name="tag_idx"/><br  />
       <label for="tag_name">태그 : </label>
       <input type="text" id="tag_name" name="tag_name"/><br  />
+      <label for="tag_smry">설명 : </label>
+      <input type="text" id="tag_smry" name="tag_smry"/><br  />
       <input type="button" value="추가" onclick="send_change(tag,0)"/>
       <input type="button" value="수정" onclick="send_change(tag,1)"/>
       <input type="button" value="삭제" onclick="send_change(tag,2)"/>
@@ -53,8 +55,8 @@
       <legend>태그 연결</legend>
       <label for="star_idx">스타 일련번호 : </label>
       <input type="text" id="star_idx" name="star_idx"/><br  />
-      <label for="tag_name">태그 이름 : </label>
-      <input type="text" id="tag_name" name="tag_name"/><br  />
+      <label for="tag_name">태그 일련번호 : </label>
+      <input type="text" id="tag_idx" name="tag_idx"/><br  />
       <input type="button" value="부여" onclick="send_change(starsns,0)"/>
       <input type="button" value="해제" onclick="send_change(starsns,1)"/>
     </fieldset>

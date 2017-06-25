@@ -4,11 +4,6 @@
   $star_name=$_POST["star_name"];
   $star_smry=$_POST["star_smry"];
 
-  echo $type."<br/>";
-  echo $star_idx."<br/>";
-  echo $star_name."<br/>";
-  echo $star_smry."<br/>";
-
   $servername = "localhost";
   $username = "root";
   $password="";
