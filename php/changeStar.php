@@ -4,6 +4,11 @@
   $star_name=$_POST["star_name"];
   $star_smry=$_POST["star_smry"];
 
+  echo $type."<br/>";
+  echo $star_idx."<br/>";
+  echo $star_name."<br/>";
+  echo $star_smry."<br/>";
+
   $servername = "localhost";
   $username = "root";
   $password="";
@@ -25,19 +30,29 @@
           echo "추가 실패<br/></br/>";
           echo "Error: " . $sql . "<br>" . mysqli_error($conn);
       }
-      echo "<meta http-equiv='refresh' content='3;url=../main/admin.php'>";
       break;
     case 1:
-
+      $sql = "UPDATE star_info SET name=\"$star_name\", summary=\"$star_smry\" WHERE idx=$star_idx";
+      if (mysqli_query($conn, $sql)) {
+        echo "수정 완료";
+      } else {
+          echo "수정 실패<br/></br/>";
+          echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+      }
       break;
     case 2:
-      # code...
+      $sql = "DELETE FROM star_info WHERE idx=$star_idx";
+      if (mysqli_query($conn, $sql)) {
+        echo "삭제 완료";
+      } else {
+          echo "삭제 실패<br/></br/>";
+          echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+      }
       break;
-
     default:
       echo "wrong access";
       break;
   }
-
   $conn->close();
+  echo "<meta http-equiv='refresh' content='3;url=../main/admin.php'>";
 ?>
