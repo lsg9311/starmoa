@@ -38,3 +38,21 @@ create table star_has_tag
     foreign key(star_idx) references star_info(idx),
     foreign key(tag_idx) references tag(tag_idx)
 );
+
+create table user_like_tag
+(
+	user_idx int,
+    tag_idx int,
+    primary key(user_idx,tag_idx),
+    foreign key(user_idx) references user_info(idx),
+    foreign key(tag_idx) references tag(tag_idx)
+);
+
+create table user_pick
+(
+	user_idx int,
+    star_idx int,
+    primary key(user_idx,star_idx),
+    foreign key(user_idx) references user_info(idx),
+    foreign key(star_idx) references star_info(idx)
+);
