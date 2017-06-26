@@ -1,5 +1,3 @@
-SELECT * FROM star_info NATURAL JOIN star_has_tag NATURAL JOIN tag WHERE tag_name="streamer";
-SELECT star_idx, name FROM star_info WHERE name="star1";
 create table user_info
 	(idx		int NOT NULL auto_increment,
 	 id		varchar(20),
@@ -24,7 +22,6 @@ create table sns
 	 primary key (star_idx,sns_type),
      foreign key(star_idx) references star_info(star_idx)
 	);
-SELECT * FROM star_has_tag NATURAL JOIN tag;
 
 create table tag
 	(tag_idx		int NOT NULL auto_increment,
@@ -50,12 +47,22 @@ create table user_like_tag
     foreign key(user_idx) references user_info(idx),
     foreign key(tag_idx) references tag(tag_idx)
 );
-
+SELECT nickname, content FROM user_info JOIN reply ON (idx=user_idx) WHERE star_idx=15;
 create table user_pick
 (
 	user_idx int,
     star_idx int,
     primary key(user_idx,star_idx),
+    foreign key(user_idx) references user_info(idx),
+    foreign key(star_idx) references star_info(star_idx)
+);
+
+create table reply(
+	reply_idx int NOT NULL auto_increment,
+	user_idx int,
+    star_idx int,
+    content varchar(500),
+    primary key(reply_idx),
     foreign key(user_idx) references user_info(idx),
     foreign key(star_idx) references star_info(star_idx)
 );

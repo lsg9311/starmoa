@@ -1,4 +1,5 @@
 <?php
+  $user_name=$_COOKIE["user_name"];
   $star_idx=$_GET["idx"];
   $star_name=$_GET["star_name"];
 
@@ -37,10 +38,29 @@
       echo "</td></tr>";
     }
   }
-  echo "</table>";
+  echo "</table><br /><br /><br /><br /><br />";
+
+  //reply
+  echo "<table>";
+  $reply_sql = "SELECT nickname, content FROM user_info JOIN reply ON (idx=user_idx) WHERE star_idx=\"$star_idx\"";
+  $reply_result=mysqli_query($conn, $reply_sql);
+
+  while ($reply_row = mysqli_fetch_assoc($tag_result)){
+    echo $reply_row["nickname"];
+    echo "<tr><td>".$reply_row["nickname"]."</td>";
+
+    echo "<td colspan=4>".$reply_row["content"]."</td></tr>";
+  }
+  echo "<form action='../php/addReply.php' method='post'>";
+  echo "<input type='hidden' name='idx' value='".$star_idx."' />";
+  echo "<tr><td><input type='text' value='".$user_name."' name='user_name' readonly /></td>";
+  echo "<td colspan=3><input type='text' name='content'/> </td>";
+  echo "<td><input type='submit' value='등록'/></td></tr>";
+  echo "</form></table>";
 ?>
 <html>
 <head>
+  <meta charset="utf-8" />
   <style type="text/css">
     table,tr,td{border:1px solid black;}
     td{text-align:center;}

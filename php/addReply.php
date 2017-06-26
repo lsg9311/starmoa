@@ -1,10 +1,7 @@
 <?php
-if(!isset($_COOKIE["user_name"])){
-  echo "FAILED";
-}
-else{
-  $user_name=$_COOKIE["user_name"];
-  $star_idx=$_GET["idx"];
+  $star_idx=$_POST["idx"];
+  $user_name=$_POST["user_name"];
+  $content=$_POST["content"];
 
   $servername = "localhost";
   $username = "root";
@@ -23,7 +20,7 @@ else{
   $row=mysqli_fetch_assoc($result);
   $user_idx=$row["idx"];
 
-  $sql = "INSERT INTO user_pick(user_idx,star_idx) VALUES ($user_idx,$star_idx)";
+  $sql = "INSERT INTO reply(user_idx,star_idx,content) VALUES ($user_idx,$star_idx,\"$content\")";
   if (mysqli_query($conn, $sql)) {
     echo "등록 완료";
   } else {
@@ -31,6 +28,14 @@ else{
       echo "Error: " . $sql . "<br>" . mysqli_error($conn);
   }
   $conn->close();
-  echo "<meta http-equiv='refresh' content='3;url=../main/main.php'>";
-}
-?>
+  echo "<meta http-equiv='refresh' content='3;url=../main/main.php"'>";
+ ?>
+ <html>
+ <head>
+   <meta charset="utf-8" />
+   <style type="text/css">
+     table,tr,td{border:1px solid black;}
+     td{text-align:center;}
+   </style>
+ </head>
+ </html>
