@@ -36,7 +36,7 @@
       }
       break;
     case 2:
-      $sql = "DELETE FROM sns WHERE idx=$star_idx", sns_type=\"$sns_type\"";
+      $sql = "DELETE FROM sns WHERE idx=$star_idx, sns_type=\"$sns_type\"";
       if (mysqli_query($conn, $sql)) {
         echo "삭제 완료";
       } else {

@@ -30,7 +30,7 @@
         while ($row = mysqli_fetch_assoc($result)) {
             $star_idx = $row["star_idx"];
             $star_name = $row["name"];
-            echo "<tr><td><a href='/detail.php?idx=".$star_idx."'>".$star_name."</a></td><td>";
+            echo "<tr><td><a href='./detail.php?idx=".$star_idx."&star_name=".$star_name."'>".$star_name."</a></td><td>";
             $tag_sql="SELECT tag_name FROM star_has_tag NATURAL JOIN tag WHERE star_idx=\"$star_idx\"";
             $tag_result=mysqli_query($conn, $tag_sql);
             while($tag_row = mysqli_fetch_assoc($tag_result)){
@@ -59,7 +59,7 @@
         while ($row = mysqli_fetch_assoc($result)) {
             $star_idx = $row["star_idx"];
             $star_name = $row["name"];
-            echo "<tr><td><a href='/detail.php?idx=".$star_idx."'>".$star_name."</a></td><td>";
+            echo "<tr><td><a href='./detail.php?idx=".$star_idx."&star_name=".$star_name."'>".$star_name."</a></td><td>";
             $tag_sql="SELECT tag_name FROM star_has_tag NATURAL JOIN tag WHERE star_idx=\"$star_idx\"";
             $tag_result=mysqli_query($conn, $tag_sql);
             while($tag_row = mysqli_fetch_assoc($tag_result)){
