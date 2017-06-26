@@ -1,3 +1,5 @@
+SELECT * FROM star_info NATURAL JOIN star_has_tag NATURAL JOIN tag WHERE tag_name="streamer";
+SELECT star_idx, name FROM star_info WHERE name="star1";
 create table user_info
 	(idx		int NOT NULL auto_increment,
 	 id		varchar(20),
@@ -22,6 +24,7 @@ create table sns
 	 primary key (star_idx,sns_type),
      foreign key(star_idx) references star_info(star_idx)
 	);
+SELECT * FROM star_has_tag NATURAL JOIN tag;
 
 create table tag
 	(tag_idx		int NOT NULL auto_increment,
