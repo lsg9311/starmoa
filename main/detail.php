@@ -18,7 +18,7 @@
   echo "<tr>
   <td colspan=2>이름</td>
   <td colspan=2>".$star_name."</td>
-  <td rowspan=2><button>pick</button></td>
+  <td rowspan=2><button onclick=\"location.replace('../php/addPick.php?idx=".$star_idx."')\">pick</button></td>
   </tr>";
   $tag_sql = "SELECT tag_name FROM star_has_tag NATURAL JOIN tag WHERE star_idx=\"$star_idx\"";
   $tag_result=mysqli_query($conn, $tag_sql);
