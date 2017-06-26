@@ -26,7 +26,7 @@
       }
       break;
     case 1:
-      $sql = "DELETE FROM star_has_tag WHERE star_idx=$star_idx", tag_idx=$tag_idx;
+      $sql = "DELETE FROM star_has_tag WHERE star_idx=$star_idx, tag_idx=$tag_idx";
       if (mysqli_query($conn, $sql)) {
         echo "삭제 완료";
       } else {

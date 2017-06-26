@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="../css/main.css" />
 </head>
 <body>
-  <form action="../php/search.php" method="post" name="search_info">
+  <form action="./search.php" method="post" name="search_info">
     <select name="query_type"/>
       <option value="name">이름</option>
       <option value="tag">태그</option>

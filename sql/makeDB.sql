@@ -9,7 +9,7 @@ create table user_info
 	);
 
 create table star_info
-	(idx		int NOT NULL auto_increment,
+	(star_idx		int NOT NULL auto_increment,
 	 name		varchar(50),
    summary	varchar(200),
 	 primary key (idx)
@@ -20,7 +20,7 @@ create table sns
 	 sns_type	varchar(50) NOT NULL ,
    addr	varchar(200),
 	 primary key (star_idx,sns_type),
-     foreign key(star_idx) references star_info(idx)
+     foreign key(star_idx) references star_info(star_idx)
 	);
 
 create table tag
@@ -29,13 +29,13 @@ create table tag
    summary	varchar(200),
 	 primary key (tag_idx)
 	);
-    
+
 create table star_has_tag
 (
 	star_idx int,
     tag_idx int,
     primary key(star_idx,tag_idx),
-    foreign key(star_idx) references star_info(idx),
+    foreign key(star_idx) references star_info(star_idx),
     foreign key(tag_idx) references tag(tag_idx)
 );
 
@@ -54,5 +54,5 @@ create table user_pick
     star_idx int,
     primary key(user_idx,star_idx),
     foreign key(user_idx) references user_info(idx),
-    foreign key(star_idx) references star_info(idx)
+    foreign key(star_idx) references star_info(star_idx)
 );
