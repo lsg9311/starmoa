@@ -21,12 +21,13 @@
   echo "<table>";
   $star_sql = "SELECT star_idx,name FROM user_pick NATURAL JOIN star_info WHERE user_idx=\"$user_idx\"";
   $star_result=mysqli_query($conn, $star_sql);
-  echo "<tr><td>관심 연예인</td></tr>";
+  echo "<tr><td colspan=2>관심 연예인</td></tr>";
   if(mysqli_num_rows($star_result)>0){
   while ($star_row = mysqli_fetch_assoc($star_result)){
     $star_idx=$star_row["star_idx"];
     $star_name=$star_row["name"];
-    echo "<tr><td><a href='./detail.php?idx=".$star_idx."&star_name=".$star_name."'>".$star_name."</a></td></tr>";
+    echo "<tr><td><a href='./detail.php?idx=".$star_idx."&star_name=".$star_name."'>".$star_name."</a></td>";
+    echo "<td><button onclick=\"location.replace('../php/deletePick.php?idx=".$star_idx."')\">delete</button></td></tr>";
     }
   }
 
@@ -36,12 +37,13 @@
   $tag_sql = "SELECT tag_idx,tag_name FROM tag NATURAL JOIN user_like_tag WHERE user_idx=\"$user_idx\"";
   $tag_result=mysqli_query($conn, $tag_sql);
 
-  echo "<tr><td>관심 태그</td></tr>";
+  echo "<tr><td colspan=2>관심 태그</td></tr>";
   if(mysqli_num_rows($tag_result)>0){
   while ($tag_row = mysqli_fetch_assoc($tag_result)){
     $tag_idx=$tag_row["tag_idx"];
     $tag_name=$tag_row["tag_name"];
-    echo "<tr><td><a href='./tag.php?idx=".$tag_idx."'>".$tag_name."</a></td></tr>";
+    echo "<tr><td><a href='./tag.php?idx=".$tag_idx."'>".$tag_name."</a></td>";
+    echo "<td><button onclick=\"location.replace('../php/deleteTag.php?idx=".$tag_idx."')\">delete</button></td></tr>";
   }
 }
   echo "</table>";
