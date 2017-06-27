@@ -1,5 +1,4 @@
 <?php
-  $user_name=$_COOKIE["user_name"];
   $tag_idx=$_GET["idx"];
 
   $servername = "localhost";
