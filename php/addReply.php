@@ -15,10 +15,10 @@
       die("Connection failed: " . mysqli_connect_error());
   }
 
-  $sub_sql = "SELECT idx FROM user_info WHERE nickname=\"$user_name\"";
+  $sub_sql = "SELECT user_idx FROM user_info WHERE nickname=\"$user_name\"";
   $result=mysqli_query($conn,$sub_sql);
   $row=mysqli_fetch_assoc($result);
-  $user_idx=$row["idx"];
+  $user_idx=$row["user_idx"];
 
   $sql = "INSERT INTO reply(user_idx,star_idx,content) VALUES ($user_idx,$star_idx,\"$content\")";
   if (mysqli_query($conn, $sql)) {

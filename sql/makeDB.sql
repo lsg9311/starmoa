@@ -1,18 +1,17 @@
 create table user_info
-	(idx		int NOT NULL auto_increment,
-	 id		varchar(20),
-   nickname varchar(20),
+	(user_idx		int NOT NULL auto_increment,
+	 id		varchar(20) unique,
+   nickname varchar(20) unique,
 	 pw		varchar(20),
 	 admin int(1) DEFAULT 0,
-	 primary key (idx),
-   unique (id)
+	 primary key (user_idx)
 	);
 
 create table star_info
 	(star_idx		int NOT NULL auto_increment,
 	 name		varchar(50),
    summary	varchar(200),
-	 primary key (idx)
+	 primary key (star_idx)
 	);
 
 create table sns
@@ -44,16 +43,15 @@ create table user_like_tag
 	user_idx int,
     tag_idx int,
     primary key(user_idx,tag_idx),
-    foreign key(user_idx) references user_info(idx),
+    foreign key(user_idx) references user_info(user_idx),
     foreign key(tag_idx) references tag(tag_idx)
 );
-SELECT nickname, content FROM user_info JOIN reply ON (idx=user_idx) WHERE star_idx=15;
 create table user_pick
 (
 	user_idx int,
     star_idx int,
     primary key(user_idx,star_idx),
-    foreign key(user_idx) references user_info(idx),
+    foreign key(user_idx) references user_info(user_idx),
     foreign key(star_idx) references star_info(star_idx)
 );
 
@@ -63,6 +61,6 @@ create table reply(
     star_idx int,
     content varchar(500),
     primary key(reply_idx),
-    foreign key(user_idx) references user_info(idx),
+    foreign key(user_idx) references user_info(user_idx),
     foreign key(star_idx) references star_info(star_idx)
 );

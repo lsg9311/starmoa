@@ -42,7 +42,7 @@
 
   //reply
   echo "<table>";
-  $reply_sql = "SELECT nickname, content FROM user_info JOIN reply ON (idx=user_idx) WHERE star_idx=\"$star_idx\"";
+  $reply_sql = "SELECT nickname, content FROM user_info NATURAL JOIN reply WHERE star_idx=\"$star_idx\"";
   $reply_result=mysqli_query($conn, $reply_sql);
 
   echo "<tr><td colspan=5>댓 글</td>  </tr>";

@@ -13,10 +13,10 @@
       die("Connection failed: " . mysqli_connect_error());
   }
   // get user_idx
-  $user_sql = "SELECT idx FROM user_info WHERE nickname=\"$user_name\"";
+  $user_sql = "SELECT user_idx FROM user_info WHERE nickname=\"$user_name\"";
   $user_result=mysqli_query($conn, $user_sql);
   $user_row = mysqli_fetch_assoc($user_result);
-  $user_idx=$user_row['idx'];
+  $user_idx=$user_row['user_idx'];
   //Star
   echo "<table>";
   $star_sql = "SELECT star_idx,name FROM user_pick NATURAL JOIN star_info WHERE user_idx=\"$user_idx\"";

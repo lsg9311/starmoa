@@ -22,7 +22,7 @@
   if (mysqli_num_rows($result)>0) {
     echo "로그인 완료";
     $row=mysqli_fetch_assoc($result);
-    $usr_idx=$row["idx"];
+    $usr_idx=$row["user_idx"];
     $usr_name=$row["nickname"];
     setcookie("user_idx", $usr_idx, time() + (86400 * 30), "/");
     setcookie("user_name", $usr_name, time() + (86400 * 30), "/");
