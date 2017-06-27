@@ -45,8 +45,8 @@
   $reply_sql = "SELECT nickname, content FROM user_info JOIN reply ON (idx=user_idx) WHERE star_idx=\"$star_idx\"";
   $reply_result=mysqli_query($conn, $reply_sql);
 
-  while ($reply_row = mysqli_fetch_assoc($tag_result)){
-    echo $reply_row["nickname"];
+  echo "<tr><td colspan=5>댓 글</td>  </tr>";
+  while ($reply_row = mysqli_fetch_assoc($reply_result)){
     echo "<tr><td>".$reply_row["nickname"]."</td>";
 
     echo "<td colspan=4>".$reply_row["content"]."</td></tr>";

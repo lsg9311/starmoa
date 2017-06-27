@@ -28,7 +28,7 @@
       echo "Error: " . $sql . "<br>" . mysqli_error($conn);
   }
   $conn->close();
-  echo "<meta http-equiv='refresh' content='3;url=../main/main.php"'>";
+  echo "<meta http-equiv='refresh' content='3;url=../main/main.php'>";
  ?>
  <html>
  <head>
