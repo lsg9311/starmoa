@@ -2,6 +2,7 @@
   if(isset($_COOKIE["user_name"])){
     echo $_COOKIE["user_name"]."님 환영합니다";
   }
+  echo "<a href='./mypage.php'>mypage</a>";
 ?>
 <html>
 <head>
@@ -18,5 +19,6 @@
     <label for="query">검색어 : </label>
     <input type="text" id="query" name="query"/>
     <input type="submit" value="SEARCH" />
+  </form>
 </body>
 </html>
